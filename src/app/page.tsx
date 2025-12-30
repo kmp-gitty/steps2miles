@@ -8,6 +8,8 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import StepsToMilesCalculator from "@/components/StepsToMilesCalculator";
 import ReturnToCalculator from "@/components/ReturnToCalculator";
+import EmbedToolButton from "@/components/EmbedToolButton";
+
 const SHOW_ADS = true;
 
 const sections = [
@@ -21,6 +23,7 @@ const sections = [
 ];
 
 export default function HomePage() {
+
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -117,6 +120,8 @@ export default function HomePage() {
                     Enter steps, choose a method, and complete calculation.
                   </p>
                 </div>
+                <EmbedToolButton />
+
               </div>
 
               <StepsToMilesCalculator />
@@ -895,6 +900,7 @@ export default function HomePage() {
               © {new Date().getFullYear()} Steps2Miles • Built for Good via
               ads4Good
             </footer>
+
           </main>
 
           {/* RIGHT RAIL (DESKTOP ONLY) */}
