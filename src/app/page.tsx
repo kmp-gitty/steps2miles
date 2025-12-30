@@ -7,6 +7,7 @@ export const metadata = {
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import StepsToMilesCalculator from "@/components/StepsToMilesCalculator";
+import ReturnToCalculator from "@/components/ReturnToCalculator";
 const SHOW_ADS = true;
 
 const sections = [
@@ -31,13 +32,34 @@ export default function HomePage() {
             <span className="text-slate-900">Miles</span>
           </Link>
 
-          <nav className="hidden gap-4 text-sm text-slate-700 md:flex">
-            {sections.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className="hover:text-slate-900">
-                {s.label}
-              </a>
-            ))}
-          </nav>
+          {/* Desktop nav */}
+<nav className="hidden gap-4 text-sm text-slate-700 md:flex">
+  {sections.map((s) => (
+    <a
+      key={s.id}
+      href={`#${s.id}`}
+      className="hover:text-slate-900"
+    >
+      {s.label}
+    </a>
+  ))}
+</nav>
+
+{/* Mobile nav */}
+<nav className="flex gap-4 text-xs font-medium text-slate-700 md:hidden">
+  <a
+    href="#calculator"
+    className="rounded-full px-3 py-1.5 hover:bg-orange-100"
+  >
+    Calculator
+  </a>
+  <a
+    href="#charts"
+    className="rounded-full px-3 py-1.5 hover:bg-orange-100"
+  >
+    Stats
+  </a>
+</nav>
 
           <div className="flex items-center gap-3">
             <Link
@@ -55,6 +77,7 @@ export default function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
           {/* MAIN CONTENT */}
           <main className="min-w-0">
+          <ReturnToCalculator />
             {/* H1 */}
             <section className="mb-10">
               <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
