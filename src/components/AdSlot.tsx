@@ -32,7 +32,7 @@ type AdSlotProps = {
           <div>
             <div className="text-sm font-semibold text-slate-700">{label}</div>
             <div className="mt-1 text-xs text-slate-500">
-              Faux ad placeholder {sizes ? `(${sizes})` : ""}
+              Future sponsored content {sizes ? `(${sizes})` : ""}
             </div>
           </div>
         </div>
