@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
+/* ---------- CSS Variables ---------- */
 :root {
-  --background: #ffffff;
+  --background: #fff7ed;
   --foreground: #171717;
+
+  /* Lexend font stack */
+  --font-lexend: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+/* ---------- Tailwind Theme Bridge ---------- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Use Lexend everywhere Tailwind uses font-sans */
+  --font-sans: var(--font-lexend);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
+/* ---------- Base Styles ---------- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lexend);
 }
+
