@@ -10,7 +10,7 @@ import StepsToMilesCalculator from "@/components/StepsToMilesCalculator";
 import ReturnToCalculator from "@/components/ReturnToCalculator";
 import EmbedToolButton from "@/components/EmbedToolButton";
 
-const SHOW_ADS = true;
+const SHOW_ADS = false;
 
 const sections = [
   { id: "calculator", label: "Calculator" },
