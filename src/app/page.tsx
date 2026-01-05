@@ -4,6 +4,7 @@ export const metadata = {
     "Free steps to miles calculator and information. Convert step counts to miles, using averages, height, or step length methods.",
 };
 
+import Script from "next/script";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import StepsToMilesCalculator from "@/components/StepsToMilesCalculator";
@@ -22,10 +23,95 @@ const sections = [
   { id: "faq", label: "FAQ" },
 ];
 
+const BASE_URL = "https://www.steps2miles.com";
+
+const FAQ_ITEMS = [
+  {
+    q: "How many steps are in a mile?",
+    a: "It depends on stride length. A common estimate is around 2,000 steps per mile, but your stride may be longer or shorter.",
+  },
+  {
+    q: "Does my pace impact step length?",
+    a: "Yes. Running typically increases step length compared to walking.",
+  },
+  {
+    q: "Should I use height-based or step-based?",
+    a: "Step-based is best if you know it. Height-based is a helpful fallback estimate.",
+  },
+  {
+    q: "How do I calculate my step length?",
+    a: "Choose a known distance, walk it at your normal pace while counting steps, then divide distance by total steps to estimate step length.",
+  },
+  {
+    q: "What impacts step length?",
+    a: "Step length is influenced by factors like height, age, gender, pace, terrain, fatigue, footwear, and general activity level.",
+  },
+];
+
 export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <Script
+  id="steps2miles-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${BASE_URL}/#org`,
+          name: "Steps2Miles",
+          url: BASE_URL,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${BASE_URL}/#website`,
+          url: BASE_URL,
+          name: "Steps2Miles",
+          publisher: { "@id": `${BASE_URL}/#org` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/#webpage`,
+          url: BASE_URL,
+          name: "Steps to Miles Calculator",
+          description:
+            "Free steps to miles calculator and information. Convert step counts to miles, using averages, height, or step length methods.",
+          isPartOf: { "@id": `${BASE_URL}/#website` },
+          about: { "@id": `${BASE_URL}/#software` },
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": `${BASE_URL}/#software`,
+          name: "Steps to Miles Calculator",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "Web",
+          url: BASE_URL,
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${BASE_URL}/#faq`,
+          mainEntity: FAQ_ITEMS.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.a,
+            },
+          })),
+        },
+      ],
+    }),
+  }}
+/>
+
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-orange-100 bg-orange-50/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
@@ -332,340 +418,316 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* Charts */}
-            <section id="charts" className="scroll-mt-24 mb-10">
-              <h2 className="text-xl font-semibold tracking-tight">
-                Charts &amp; Stats
-              </h2>
+{/* Charts */} <section id="charts" className="scroll-mt-24 mb-10">
+  <h2 className="text-xl font-semibold tracking-tight"> Charts &amp; Stats </h2>
 
-              <div className="mt-4 space-y-4">
-                {/* Chart 1 */}
-                <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                    <div>
-                      <h3 className="font-semibold text-black">
-                        Common Step Counts Converted to Distance: Miles, KM, M,
-                        YDs
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-700">
-                        How many miles is 10,000 steps? Find this and other
-                        common step counts converted to distance. (Using avg
-                        step length between Female &amp; Male)
-                      </p>
-                    </div>
+<div className="mt-4 space-y-4">
+  {/* Chart 1 */}
+  <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div>
+        <h3 className="font-semibold text-black">
+          Common Step Counts Converted to Distance: Miles, KM, M, YDs
+        </h3>
+        <p className="mt-1 text-sm text-slate-700">
+          How many miles is 10,000 steps? Find this and other common step counts converted to
+          distance. (Using avg step length between Female &amp; Male)
+        </p>
+      </div>
 
-                    <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
+      <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
+        ▾
+      </span>
+    </summary>
 
-                  <div className="mt-4 overflow-x-auto">
-                    <table className="min-w-[760px] w-full border-collapse text-left">
-                      <thead>
-                        <tr className="bg-orange-50 text-sm">
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Step Count
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Distance: Miles
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Distance: Kilometers
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Distance: Meters
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Distance: Yards
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-sm">
-                        {[
-                          {
-                            steps: "2,000",
-                            miles: "0.9",
-                            km: "1.4",
-                            m: "1,432.5",
-                            yd: "1,566.67",
-                          },
-                          {
-                            steps: "3,000",
-                            miles: "1.3",
-                            km: "2.1",
-                            m: "2,148.7",
-                            yd: "2,350.00",
-                          },
-                          {
-                            steps: "5,000",
-                            miles: "2.2",
-                            km: "3.6",
-                            m: "3,581.2",
-                            yd: "3,916.67",
-                          },
-                          {
-                            steps: "10,000",
-                            miles: "4.5",
-                            km: "7.2",
-                            m: "7,162.5",
-                            yd: "7,833.33",
-                          },
-                          {
-                            steps: "15,000",
-                            miles: "6.7",
-                            km: "10.7",
-                            m: "10,743.7",
-                            yd: "11,750.00",
-                          },
-                          {
-                            steps: "20,000",
-                            miles: "8.9",
-                            km: "14.3",
-                            m: "14,324.9",
-                            yd: "15,666.67",
-                          },
-                          {
-                            steps: "25,000",
-                            miles: "11.1",
-                            km: "17.9",
-                            m: "17,906.1",
-                            yd: "19,583.33",
-                          },
-                          {
-                            steps: "50,000",
-                            miles: "22.3",
-                            km: "35.8",
-                            m: "35,812.3",
-                            yd: "39,166.67",
-                          },
-                          {
-                            steps: "100,000",
-                            miles: "44.5",
-                            km: "71.6",
-                            m: "71,624.5",
-                            yd: "78,333.33",
-                          },
-                          {
-                            steps: "330,000",
-                            miles: "146.9",
-                            km: "236.4",
-                            m: "236,360.9",
-                            yd: "258,500.00",
-                          },
-                        ].map((row) => (
-                          <tr key={row.steps} className="border-t border-orange-100">
-                            <td className="px-4 py-3 font-medium text-slate-900">
-                              {row.steps}
-                            </td>
-                            <td className="px-4 py-3 text-slate-700">
-                              {row.miles}
-                            </td>
-                            <td className="px-4 py-3 text-slate-700">{row.km}</td>
-                            <td className="px-4 py-3 text-slate-700">{row.m}</td>
-                            <td className="px-4 py-3 text-slate-700">{row.yd}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </details>
+    <div className="mt-4 overflow-x-auto">
+      <table className="min-w-[760px] w-full border-collapse text-left">
+        <thead>
+          <tr className="bg-orange-50 text-sm">
+            <th className="px-4 py-3 font-semibold text-slate-900">Step Count</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Distance: Miles</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Distance: Kilometers</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Distance: Meters</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Distance: Yards</th>
+          </tr>
+        </thead>
+        <tbody className="text-sm">
+          {[
+            { steps: "2,000", miles: "0.9", km: "1.4", m: "1,432.5", yd: "1,566.67" },
+            { steps: "3,000", miles: "1.3", km: "2.1", m: "2,148.7", yd: "2,350.00" },
+            { steps: "5,000", miles: "2.2", km: "3.6", m: "3,581.2", yd: "3,916.67" },
+            { steps: "10,000", miles: "4.5", km: "7.2", m: "7,162.5", yd: "7,833.33" },
+            { steps: "15,000", miles: "6.7", km: "10.7", m: "10,743.7", yd: "11,750.00" },
+            { steps: "20,000", miles: "8.9", km: "14.3", m: "14,324.9", yd: "15,666.67" },
+            { steps: "25,000", miles: "11.1", km: "17.9", m: "17,906.1", yd: "19,583.33" },
+            { steps: "50,000", miles: "22.3", km: "35.8", m: "35,812.3", yd: "39,166.67" },
+            { steps: "100,000", miles: "44.5", km: "71.6", m: "71,624.5", yd: "78,333.33" },
+            { steps: "330,000", miles: "146.9", km: "236.4", m: "236,360.9", yd: "258,500.00" },
+          ].map((row) => (
+            <tr key={row.steps} className="border-t border-orange-100">
+              <td className="px-4 py-3 font-medium text-slate-900">{row.steps}</td>
+              <td className="px-4 py-3 text-slate-700">{row.miles}</td>
+              <td className="px-4 py-3 text-slate-700">{row.km}</td>
+              <td className="px-4 py-3 text-slate-700">{row.m}</td>
+              <td className="px-4 py-3 text-slate-700">{row.yd}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
 
-                {/* Chart 2 */}
-                <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                    <div>
-                      <h3 className="font-semibold text-black">
-                        Estimated Step Length by Height: Male vs Female
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-700">
-                        Quickly lookup your height and correlated step length.
-                        (Using average height to step length conversion)
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
+  {/* ✅ NEW Chart 2 */}
+  <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div>
+        <h3 className="font-semibold text-black">
+          Common Distances and their Estimated Step Counts
+        </h3>
+        <p className="mt-1 text-sm text-slate-700">
+          How many steps are in 1 mile? How many in 3 miles? Find out common distances and their
+          associated step counts. (Using avg step length between Female &amp; Male)
+        </p>
+      </div>
 
-                  <div className="mt-4 overflow-x-auto">
-                    <table className="min-w-[560px] w-full border-collapse text-left">
-                      <thead>
-                        <tr className="bg-orange-50 text-sm">
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Height
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Male Step Length (ft)
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Female Step Length (ft)
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-sm">
-                        {[
-                          { h: "4ft 6in", male: "1.87", female: "1.86" },
-                          { h: "4ft 7in", male: "1.90", female: "1.89" },
-                          { h: "4ft 8in", male: "1.94", female: "1.93" },
-                          { h: "4ft 9in", male: "1.97", female: "1.96" },
-                          { h: "4ft 10in", male: "2.01", female: "2.00" },
-                          { h: "4ft 11in", male: "2.04", female: "2.03" },
-                          { h: "5ft 0in", male: "2.08", female: "2.07" },
-                          { h: "5ft 1in", male: "2.11", female: "2.10" },
-                          { h: "5ft 2in", male: "2.14", female: "2.13" },
-                          { h: "5ft 3in", male: "2.18", female: "2.17" },
-                          { h: "5ft 4in", male: "2.21", female: "2.20" },
-                          { h: "5ft 5in", male: "2.25", female: "2.24" },
-                          { h: "5ft 6in", male: "2.28", female: "2.27" },
-                          { h: "5ft 7in", male: "2.32", female: "2.31" },
-                          { h: "5ft 8in", male: "2.35", female: "2.34" },
-                          { h: "5ft 9in", male: "2.39", female: "2.37" },
-                          { h: "5ft 10in", male: "2.42", female: "2.41" },
-                          { h: "5ft 11in", male: "2.46", female: "2.44" },
-                          { h: "6ft 0in", male: "2.49", female: "2.48" },
-                          { h: "6ft 1in", male: "2.52", female: "2.51" },
-                          { h: "6ft 2in", male: "2.56", female: "2.55" },
-                          { h: "6ft 3in", male: "2.59", female: "2.58" },
-                          { h: "6ft 4in", male: "2.63", female: "2.62" },
-                          { h: "6ft 5in", male: "2.66", female: "2.65" },
-                          { h: "6ft 6in", male: "2.70", female: "2.68" },
-                        ].map((row) => (
-                          <tr key={row.h} className="border-t border-orange-100">
-                            <td className="px-4 py-3 font-medium text-slate-900">
-                              {row.h}
-                            </td>
-                            <td className="px-4 py-3 text-slate-700">{row.male}</td>
-                            <td className="px-4 py-3 text-slate-700">
-                              {row.female}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </details>
+      <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
+        ▾
+      </span>
+    </summary>
 
-                {/* Chart 3 */}
-                <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                    <div>
-                      <h3 className="font-semibold text-black">
-                        Pace impact on step length and step count
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-700">
-                        An ACSM study showed that step length increased when pace
-                        increased. Use this chart to see the differences in step
-                        count and length for 1 mile at various paces.
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
+    <div className="mt-4 grid gap-6 lg:grid-cols-2">
+      {/* Left table: Miles */}
+      <div className="overflow-x-auto">
+        <table className="min-w-[360px] w-full border-collapse text-left">
+          <thead>
+            <tr className="bg-orange-50 text-sm">
+              <th className="px-4 py-3 font-semibold text-slate-900">Distance: Miles</th>
+              <th className="px-4 py-3 font-semibold text-slate-900">Step Count</th>
+            </tr>
+          </thead>
+          <tbody className="text-sm">
+            {[
+              { dist: "1", steps: "2,247" },
+              { dist: "2", steps: "4,494" },
+              { dist: "3", steps: "6,740" },
+              { dist: "5", steps: "11,234" },
+              { dist: "10", steps: "22,468" },
+              { dist: "13.1 (Half Marathon)", steps: "29,433" },
+              { dist: "15", steps: "33,702" },
+              { dist: "18", steps: "40,443" },
+              { dist: "20", steps: "44,936" },
+              { dist: "22", steps: "49,430" },
+              { dist: "25", steps: "56,170" },
+              { dist: "26.2 (Marathon)", steps: "58,866" },
+            ].map((row) => (
+              <tr key={`mi-${row.dist}`} className="border-t border-orange-100">
+                <td className="px-4 py-3 font-medium text-slate-900">{row.dist}</td>
+                <td className="px-4 py-3 text-slate-700">{row.steps}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-                  <div className="mt-4 overflow-x-auto">
-                    <table className="min-w-[560px] w-full border-collapse text-left">
-                      <thead>
-                        <tr className="bg-orange-50 text-sm">
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Pace
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Steps for 1 Mile
-                          </th>
-                          <th className="px-4 py-3 font-semibold text-slate-900">
-                            Average Step Length (ft)
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-sm">
-                        {[
-                          { pace: "Walking: 20 min/mile", steps: "2,250", length: "2.35" },
-                          { pace: "Jogging: 12 min/mile", steps: "1,875", length: "2.82" },
-                          { pace: "Moderate Run: 10 min/mile", steps: "1,600", length: "3.30" },
-                          { pace: "Run: 8 min/mile", steps: "1,400", length: "3.77" },
-                          { pace: "Fast Run: 6 min/mile", steps: "1,064", length: "4.96" },
-                        ].map((row) => (
-                          <tr key={row.pace} className="border-t border-orange-100">
-                            <td className="px-4 py-3 font-medium text-slate-900">
-                              {row.pace}
-                            </td>
-                            <td className="px-4 py-3 text-slate-700">{row.steps}</td>
-                            <td className="px-4 py-3 text-slate-700">{row.length}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </details>
+      {/* Right table: Kilometers */}
+      <div className="overflow-x-auto">
+        <table className="min-w-[360px] w-full border-collapse text-left">
+          <thead>
+            <tr className="bg-orange-50 text-sm">
+              <th className="px-4 py-3 font-semibold text-slate-900">Distance: Kilometers</th>
+              <th className="px-4 py-3 font-semibold text-slate-900">Step Count</th>
+            </tr>
+          </thead>
+          <tbody className="text-sm">
+            {[
+              { dist: "1", steps: "1,396" },
+              { dist: "5", steps: "6,979" },
+              { dist: "10", steps: "13,957" },
+              { dist: "15", steps: "20,936" },
+              { dist: "20", steps: "27,915" },
+              { dist: "21.1 (Half Marathon)", steps: "29,433" },
+              { dist: "25", steps: "34,894" },
+              { dist: "30", steps: "41,872" },
+              { dist: "32", steps: "44,664" },
+              { dist: "35", steps: "48,851" },
+              { dist: "40", steps: "55,830" },
+              { dist: "42.2 (Marathon)", steps: "58,866" },
+            ].map((row) => (
+              <tr key={`km-${row.dist}`} className="border-t border-orange-100">
+                <td className="px-4 py-3 font-medium text-slate-900">{row.dist}</td>
+                <td className="px-4 py-3 text-slate-700">{row.steps}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
 
-                {/* Chart 4 */}
-                <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                    <div>
-                      <h3 className="font-semibold text-black">
-                        Daily Step Recommendations
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-700">
-                        How many steps should you take a day? These are general
-                        daily step recommendations based on age, fitness level,
-                        and health goals.
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
+  {/* Chart 3 (was Chart 2) */}
+  <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div>
+        <h3 className="font-semibold text-black">
+          Estimated Step Length by Height: Male vs Female
+        </h3>
+        <p className="mt-1 text-sm text-slate-700">
+          Quickly lookup your height and correlated step length. (Using average height to step
+          length conversion)
+        </p>
+      </div>
+      <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
+        ▾
+      </span>
+    </summary>
 
-                  <div className="mt-4 text-sm text-slate-700">
-                    <p className="mb-3">
-                      Data is derived from a{" "}
-                      <a
-                        href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(21)00302-9/fulltext"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
-                      >
-                        Lancet Public Health
-                      </a>{" "}
-                      meta-analysis of 15 studies examining daily step volume and
-                      health outcomes.
-                    </p>
+    <div className="mt-4 overflow-x-auto">
+      <table className="min-w-[560px] w-full border-collapse text-left">
+        <thead>
+          <tr className="bg-orange-50 text-sm">
+            <th className="px-4 py-3 font-semibold text-slate-900">Height</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Male Step Length (ft)</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Female Step Length (ft)</th>
+          </tr>
+        </thead>
+        <tbody className="text-sm">
+          {[
+            { h: "4ft 6in", male: "1.87", female: "1.86" },
+            { h: "4ft 7in", male: "1.90", female: "1.89" },
+            { h: "4ft 8in", male: "1.94", female: "1.93" },
+            { h: "4ft 9in", male: "1.97", female: "1.96" },
+            { h: "4ft 10in", male: "2.01", female: "2.00" },
+            { h: "4ft 11in", male: "2.04", female: "2.03" },
+            { h: "5ft 0in", male: "2.08", female: "2.07" },
+            { h: "5ft 1in", male: "2.11", female: "2.10" },
+            { h: "5ft 2in", male: "2.14", female: "2.13" },
+            { h: "5ft 3in", male: "2.18", female: "2.17" },
+            { h: "5ft 4in", male: "2.21", female: "2.20" },
+            { h: "5ft 5in", male: "2.25", female: "2.24" },
+            { h: "5ft 6in", male: "2.28", female: "2.27" },
+            { h: "5ft 7in", male: "2.32", female: "2.31" },
+            { h: "5ft 8in", male: "2.35", female: "2.34" },
+            { h: "5ft 9in", male: "2.39", female: "2.37" },
+            { h: "5ft 10in", male: "2.42", female: "2.41" },
+            { h: "5ft 11in", male: "2.46", female: "2.44" },
+            { h: "6ft 0in", male: "2.49", female: "2.48" },
+            { h: "6ft 1in", male: "2.52", female: "2.51" },
+            { h: "6ft 2in", male: "2.56", female: "2.55" },
+            { h: "6ft 3in", male: "2.59", female: "2.58" },
+            { h: "6ft 4in", male: "2.63", female: "2.62" },
+            { h: "6ft 5in", male: "2.66", female: "2.65" },
+            { h: "6ft 6in", male: "2.70", female: "2.68" },
+          ].map((row) => (
+            <tr key={row.h} className="border-t border-orange-100">
+              <td className="px-4 py-3 font-medium text-slate-900">{row.h}</td>
+              <td className="px-4 py-3 text-slate-700">{row.male}</td>
+              <td className="px-4 py-3 text-slate-700">{row.female}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
 
-                    <ul className="list-disc space-y-2 pl-5">
-                      <li>
-                        For general fitness, most adults should aim for between{" "}
-                        <span className="font-medium">
-                          8,000–10,000 steps per day
-                        </span>
-                        .
-                      </li>
-                      <li>
-                        The study suggests that{" "}
-                        <span className="font-medium">
-                          7,500 or more steps per day
-                        </span>{" "}
-                        was significantly associated with greater weight loss and
-                        improved health markers.
-                      </li>
-                      <li>
-                        For improved fitness, step volume isn’t the only factor —
-                        increasing pace or difficulty (walking faster or uphill)
-                        contributes to greater fitness.
-                      </li>
-                      <li>
-                        Age plays a role: teens and tweens may benefit from{" "}
-                        <span className="font-medium">
-                          11,000–12,000 steps per day
-                        </span>
-                        , while adults aged 60+ are recommended{" "}
-                        <span className="font-medium">6,000–8,000.</span>
-                      </li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-            </section>
+  {/* Chart 4 (was Chart 3) */}
+  <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div>
+        <h3 className="font-semibold text-black">
+          Pace impact on step length and step count
+        </h3>
+        <p className="mt-1 text-sm text-slate-700">
+          An ACSM study showed that step length increased when pace increased. Use this chart to
+          see the differences in step count and length for 1 mile at various paces.
+        </p>
+      </div>
+      <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
+        ▾
+      </span>
+    </summary>
+
+    <div className="mt-4 overflow-x-auto">
+      <table className="min-w-[560px] w-full border-collapse text-left">
+        <thead>
+          <tr className="bg-orange-50 text-sm">
+            <th className="px-4 py-3 font-semibold text-slate-900">Pace</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Steps for 1 Mile</th>
+            <th className="px-4 py-3 font-semibold text-slate-900">Average Step Length (ft)</th>
+          </tr>
+        </thead>
+        <tbody className="text-sm">
+          {[
+            { pace: "Walking: 20 min/mile", steps: "2,250", length: "2.35" },
+            { pace: "Jogging: 12 min/mile", steps: "1,875", length: "2.82" },
+            { pace: "Moderate Run: 10 min/mile", steps: "1,600", length: "3.30" },
+            { pace: "Run: 8 min/mile", steps: "1,400", length: "3.77" },
+            { pace: "Fast Run: 6 min/mile", steps: "1,064", length: "4.96" },
+          ].map((row) => (
+            <tr key={row.pace} className="border-t border-orange-100">
+              <td className="px-4 py-3 font-medium text-slate-900">{row.pace}</td>
+              <td className="px-4 py-3 text-slate-700">{row.steps}</td>
+              <td className="px-4 py-3 text-slate-700">{row.length}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  {/* Chart 5 (was Chart 4) */}
+  <details className="group rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div>
+        <h3 className="font-semibold text-black">Daily Step Recommendations</h3>
+        <p className="mt-1 text-sm text-slate-700">
+          How many steps should you take a day? These are general daily step recommendations based
+          on age, fitness level, and health goals.
+        </p>
+      </div>
+      <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
+        ▾
+      </span>
+    </summary>
+
+    <div className="mt-4 text-sm text-slate-700">
+      <p className="mb-3">
+        Data is derived from a{" "}
+        <a
+          href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(21)00302-9/fulltext"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+        >
+          Lancet Public Health
+        </a>{" "}
+        meta-analysis of 15 studies examining daily step volume and health outcomes.
+      </p>
+
+      <ul className="list-disc space-y-2 pl-5">
+        <li>
+          For general fitness, most adults should aim for between{" "}
+          <span className="font-medium">8,000–10,000 steps per day</span>.
+        </li>
+        <li>
+          The study suggests that{" "}
+          <span className="font-medium">7,500 or more steps per day</span> was significantly
+          associated with greater weight loss and improved health markers.
+        </li>
+        <li>
+          For improved fitness, step volume isn’t the only factor — increasing pace or difficulty
+          (walking faster or uphill) contributes to greater fitness.
+        </li>
+        <li>
+          Age plays a role: teens and tweens may benefit from{" "}
+          <span className="font-medium">11,000–12,000 steps per day</span>, while adults aged 60+ are
+          recommended <span className="font-medium">6,000–8,000.</span>
+        </li>
+      </ul>
+    </div>
+  </details>
+</div>
+</section>
+
 
             {/* FAQ */}
             <section id="faq" className="scroll-mt-24 mb-10">
