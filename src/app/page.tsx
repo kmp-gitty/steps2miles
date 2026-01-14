@@ -729,102 +729,102 @@ export default function HomePage() {
 </section>
 
 {/* People Also Ask */}
-<section id="faq" className="scroll-mt-24 mb-10">
-              <h2 className="text-xl font-semibold tracking-tight">Common Questions About Steps to Miles</h2>
-              <p className="mt-2 text-slate-700">
+<section id="people-also-ask" className="scroll-mt-24 mb-12">
+  <h2 className="text-xl font-semibold tracking-tight">
+    Common Questions About Steps to Miles
+  </h2>
+
+  <p className="mt-2 text-slate-700 max-w-3xl">
     Quick, plain-English answers to the most common “how many miles is X steps?”
     questions — plus what affects accuracy.
   </p>
-              <div className="mt-4 space-y-3">
-                {[
-                  {
-                    q: "How many miles is 10,000 steps?",
-        a: (
-          <p>
-            On average, <span className="font-medium">10,000 steps is about 4.5–5 miles</span>.
-            The exact number depends on your step length: shorter steps convert to fewer miles,
-            and longer steps convert to more. If you want the most accurate result, use the
-            “known step length” method in the calculator.
-          </p>
-                    ),
-                  },
-                  {
-                    q: "How many miles is 7,500 steps?",
-                    a: (
-                      <p>
-                        A common estimate is{" "}
-                        <span className="font-medium">7,500 steps ≈ 3.3–3.8 miles</span>.
-                        Your height, pace, terrain, and personal stride length can shift that up or down.
-                      </p>
-                    ),
-                  },
-                  {
-                    q: "How many miles is 5,000 steps?",
-                    a: (
-                      <p>
-                        For most people,{" "}
-                        <span className="font-medium">5,000 steps is around 2.2–2.5 miles</span>.
-                        If you have a shorter stride, it’ll be closer to the low end; longer strides push it higher.
-                      </p>
-                    ),
-                  },
-                  {
-                    q: "How many miles is 20,000 steps?",
-                    a: (
-                      <p>
-                        On average,{" "}
-                        <span className="font-medium">20,000 steps is about 9–10 miles</span>.
-                        Step length drives the difference — so this can vary quite a bit person-to-person.
-                      </p>
-                    ),
-                  },
-                  {
-                    q: "Are steps-to-miles different for men and women?",
-                    a: (
-                      <p>
-                        They can be. On average, men tend to have slightly longer step length than women (even at the same height),
-                        which can mean the same step count converts to a little more distance. But the{" "}
-                        <span className="font-medium">biggest factor is your individual stride</span>,
-                        not gender — height, pace, and biomechanics matter more.
-                      </p>
-                    ),
-                  },
-                  {
-                    q: "Does height affect how many miles your steps equal?",
-                    a: (
-                      <p>
-                        Yes. Taller people often have longer legs and a longer stride, so each step covers
-                        more ground. That’s why a height-based method can be more accurate than a generic
-                        average — but the most accurate option is still using your{" "}
-                        <span className="font-medium">measured step length</span>.
-                      </p>
-                    ),
-                  },
-                  {
-                    q: "How accurate are steps-to-miles calculators?",
-                    a: (
-                      <p>
-                        They’re usually accurate enough for everyday use, but still an estimate. Accuracy is
-                        highest when you use your{" "}
-                        <span className="font-medium">known step length</span>. It’s less precise when you
-                        use general averages, because pace, fatigue, terrain, footwear, and walking vs. running
-                        all change stride length.
-                      </p>
-                    ),
-                  },
-                ].map((item) => (
-                  <details
-                    key={item.q}
-                    className="rounded-2xl border border-orange-100 bg-white p-4 shadow-sm"
-                  >
-                    <summary className="cursor-pointer select-none font-medium text-slate-900">
-                      {item.q}
-                    </summary>
-                    <div className="mt-2 text-slate-700">{item.a}</div>
-                  </details>
-                ))}
-              </div>
-            </section>
+
+  <div className="mt-6 space-y-8 max-w-3xl">
+    {/* Q1 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        How many miles is 10,000 steps?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        On average, <span className="font-medium">10,000 steps is about 4.5–5 miles</span>.
+        The exact number depends on your step length: shorter steps convert to fewer miles,
+        and longer steps convert to more. For the most accurate result, use the
+        <span className="font-medium"> known step length</span> method in the calculator.
+      </p>
+    </div>
+
+    {/* Q2 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        How many miles is 7,500 steps?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        A common estimate is <span className="font-medium">7,500 steps ≈ 3.3–3.8 miles</span>.
+        Height, pace, terrain, and personal stride length can all push this number higher or lower.
+      </p>
+    </div>
+
+    {/* Q3 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        How many miles is 5,000 steps?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        For most people, <span className="font-medium">5,000 steps is around 2.2–2.5 miles</span>.
+        Shorter strides fall closer to the low end, while longer strides increase distance.
+      </p>
+    </div>
+
+    {/* Q4 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        How many miles is 20,000 steps?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        On average, <span className="font-medium">20,000 steps equals about 9–10 miles</span>.
+        This varies significantly person-to-person because step length plays a major role.
+      </p>
+    </div>
+
+    {/* Q5 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        Are steps-to-miles different for men and women?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        They can be. On average, men tend to have slightly longer step length than women,
+        even at the same height. That said, the
+        <span className="font-medium"> biggest factor is individual stride</span> —
+        height, pace, and biomechanics matter more than gender alone.
+      </p>
+    </div>
+
+    {/* Q6 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        Does height affect how many miles your steps equal?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        Yes. Taller people generally have longer legs and longer strides, so each step covers
+        more ground. This is why height-based calculations are more accurate than generic averages —
+        though measuring your <span className="font-medium">actual step length</span> is best.
+      </p>
+    </div>
+
+    {/* Q7 */}
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">
+        How accurate are steps-to-miles calculators?
+      </h2>
+      <p className="mt-2 text-slate-700">
+        They’re accurate enough for everyday use, but still estimates. Accuracy is highest when
+        using your <span className="font-medium">known step length</span>. General averages are
+        less precise because pace, fatigue, terrain, footwear, and walking vs. running all
+        affect stride length.
+      </p>
+    </div>
+  </div>
+</section>
 
             {/* FAQ */}
             <section id="faq" className="scroll-mt-24 mb-10">
