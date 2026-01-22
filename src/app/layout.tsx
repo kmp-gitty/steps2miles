@@ -10,10 +10,14 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.steps2miles.com"),
   title: "Steps to Miles Calculator",
   description:
     "Convert steps to miles instantly. Simple calculator with methodology, formulas, charts, and FAQs.",
-};
+  alternates: {
+    canonical: "./",
+  },
+  };
 
 const siteSchema = {
   "@context": "https://schema.org",
