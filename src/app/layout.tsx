@@ -49,8 +49,7 @@ export default function RootLayout({
       <head>
         {/* AdSense loader (site-wide, once) */}
         <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296305798175078"
+          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296305798175078"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
