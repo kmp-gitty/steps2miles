@@ -46,6 +46,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lexend.variable}>
+      <head>
+        {/* AdSense loader (site-wide, once) */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296305798175078"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-screen bg-orange-50 text-slate-900 antialiased">
         {/* Site-wide structured data */}
         <Script
