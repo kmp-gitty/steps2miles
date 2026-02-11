@@ -150,14 +150,76 @@ export default function HomePage() {
   </a>
 </nav>
 
-          <div className="flex items-center gap-3">
-            <Link
-              href="/about"
-              className="rounded-full border border-orange-200 px-3 py-1.5 text-sm text-slate-800 hover:bg-orange-100"
-            >
-              About
-            </Link>
-          </div>
+<div className="flex items-center gap-3">
+  <details className="relative">
+    <summary className="list-none cursor-pointer rounded-full border border-orange-200 px-3 py-1.5 text-sm text-slate-800 hover:bg-orange-100">
+      Resources
+    </summary>
+
+    {/* Dropdown panel */}
+    <div className="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-orange-100 bg-white shadow-lg">
+      <nav className="py-1 text-sm">
+        <Link
+          href="/10000-steps-in-miles"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          10K Steps in Miles
+        </Link>
+        <Link
+          href="/average-step-length-by-height-and-pace"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          Height & Pace Impact on Step Length
+        </Link>
+        <Link
+          href="/how-many-steps-in-a-mile"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          How many Steps in 1 Mile?
+        </Link>
+      </nav>
+    </div>
+  </details>
+</div>
+
+<div className="flex items-center gap-3">
+  <details className="relative">
+    <summary className="list-none cursor-pointer rounded-full border border-orange-200 px-3 py-1.5 text-sm text-slate-800 hover:bg-orange-100">
+      About
+    </summary>
+
+    {/* Dropdown panel */}
+    <div className="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-orange-100 bg-white shadow-lg">
+      <nav className="py-1 text-sm">
+        <Link
+          href="/about"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          About Steps2Miles
+        </Link>
+        <Link
+          href="/privacy-policy"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          Privacy Policy
+        </Link>
+        <Link
+          href="/contact"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          Contact
+        </Link>
+        <Link
+          href="/terms-disclaimer"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          Terms &amp; Disclaimer
+        </Link>
+      </nav>
+    </div>
+  </details>
+</div>
+
         </div>
       </header>
 
@@ -430,9 +492,17 @@ export default function HomePage() {
           Common Step Counts Converted to Distance: Miles, KM, M, YDs
         </h3>
         <p className="mt-1 text-sm text-slate-700">
-          How many miles is 10,000 steps? Find this and other common step counts converted to
-          distance. (Using avg step length between Female &amp; Male)
-        </p>
+  How many miles is 10,000 steps? Find this and other common step counts converted to
+  distance. (Using avg step length between Female &amp; Male).{" "}
+  See our full breakdown of{" "}
+  <Link
+    href="/10000-steps-in-miles"
+    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+  >
+    10,000 steps in miles
+  </Link>{" "}
+  and other counts on our resource page.
+</p>
       </div>
 
       <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
@@ -640,6 +710,15 @@ export default function HomePage() {
           An ACSM study showed that step length increased when pace increased. Use this chart to
           see the differences in step count and length for 1 mile at various paces.
         </p>
+        <p className="mt-3 text-sm">
+  Want a deeper breakdown of how pace and height change stride length?{" "}
+  <Link
+    href="/average-step-length-by-height-and-pace"
+    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+  >
+    Read our full step length by height & pace resource.
+  </Link>
+</p>
       </div>
       <span className="shrink-0 text-4xl font-semibold text-orange-600 transition-transform group-open:rotate-180">
         ▾
@@ -751,6 +830,15 @@ export default function HomePage() {
         and longer steps convert to more. For the most accurate result, use the
         <span className="font-medium"> known step length</span> method in the calculator.
       </p>
+      <p className="mt-3 text-sm">
+  Want a deeper explanation?{" "}
+  <Link
+    href="/10000-steps-in-miles"
+    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+  >
+    Read our full 10,000 steps in miles resource.
+  </Link>
+</p>
     </div>
 
     {/* Q2 */}
@@ -835,8 +923,14 @@ export default function HomePage() {
                     q: "How many steps are in a mile?",
                     a: (
                       <p>
-                        It depends on stride length. A common estimate is ~2,000
-                        steps per mile, but your stride may be longer or shorter.
+                        It depends on stride length. A common estimate is ~2,000 steps per mile, but your stride may be longer or shorter.{" "}
+For a deeper explanation,{" "}
+<Link
+  href="/how-many-steps-in-a-mile"
+  className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+>
+  read our resource on how many steps are in a mile.
+</Link>
                       </p>
                     ),
                   },
@@ -855,6 +949,14 @@ export default function HomePage() {
                         </a>{" "}
                         found that running step length usually increases compared
                         to walking.
+
+                        For a detailed breakdown of pace-based stride differences,{" "}
+<Link
+  href="/average-step-length-by-height-and-pace"
+  className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+>
+  see our full height & pace impact on step length resource.
+</Link>
                       </p>
                     ),
                   },
