@@ -144,6 +144,18 @@ export const metadata = {
   
           <footer className="py-10 text-center text-xs text-slate-500">
             © {new Date().getFullYear()} Steps2Miles • Built for Good via ads4Good
+            <p className="mt-2">
+              Part of the{" "}
+              <a
+                href="https://utilitycommons.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-slate-700"
+              >
+                Utility Commons
+              </a>{" "}
+              family of everyday tools.
+            </p>
           </footer>
         </main>
       </div>

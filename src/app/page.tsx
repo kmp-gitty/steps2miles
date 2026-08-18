@@ -177,6 +177,15 @@ export default function HomePage() {
         >
           How many Steps in 1 Mile?
         </Link>
+        <div className="my-1 border-t border-orange-100" />
+        <a
+          href="https://utilitycommons.com/calculators/"
+          target="_blank"
+          rel="noreferrer"
+          className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+        >
+          More Everyday Calculators →
+        </a>
       </nav>
     </div>
   </details>
@@ -1014,6 +1023,46 @@ For a deeper explanation,{" "}
               </div>
             </section>
 
+            {/* More everyday tools */}
+            <section id="more-tools" className="scroll-mt-24 mb-10">
+              <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
+                <h2 className="text-xl font-semibold tracking-tight text-black">
+                  More everyday tools
+                </h2>
+                <p className="mt-2 text-slate-700">
+                  Steps2Miles is part of a small family of everyday tools. If
+                  you&apos;re tracking fitness, you might also want a{" "}
+                  <a
+                    href="https://utilitycommons.com/calculators/health-fitness/water-intake/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    water intake calculator
+                  </a>
+                  , a{" "}
+                  <a
+                    href="https://utilitycommons.com/calculators/health-fitness/body-fat-percentage/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    body fat percentage calculator
+                  </a>
+                  , or a full{" "}
+                  <a
+                    href="https://utilitycommons.com/charts/metric-conversion-chart/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    metric conversion chart
+                  </a>{" "}
+                  over at Utility Commons.
+                </p>
+              </div>
+            </section>
+
             {/* Mini About */}
             <section id="about" className="scroll-mt-24 mb-6">
               <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
@@ -1160,6 +1209,18 @@ For a deeper explanation,{" "}
             <footer className="py-10 text-center text-xs text-slate-500">
               © {new Date().getFullYear()} Steps2Miles • Built for Good via
               ads4Good
+              <p className="mt-2">
+                Part of the{" "}
+                <a
+                  href="https://utilitycommons.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 hover:text-slate-700"
+                >
+                  Utility Commons
+                </a>{" "}
+                family of everyday tools.
+              </p>
             </footer>
 
           </main>

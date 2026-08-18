@@ -72,6 +72,15 @@ export const metadata = {
                     >
                       How many Steps in 1 Mile?
                     </Link>
+                    <div className="my-1 border-t border-orange-100" />
+                    <a
+                      href="https://utilitycommons.com/calculators/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block px-4 py-2 text-slate-800 hover:bg-orange-50"
+                    >
+                      More Everyday Calculators →
+                    </a>
                   </nav>
                 </div>
               </details>
@@ -162,13 +171,32 @@ export const metadata = {
                 approximated by multiplying height (in inches) by{" "}
                 <span className="font-medium">0.413 (women)</span> or{" "}
                 <span className="font-medium">0.415 (men)</span>. This gives an estimated step length
-                in inches, which you can convert to feet by dividing by 12.
+                in inches, which you can convert to feet by dividing by 12 — or{" "}
+                <a
+                  href="https://utilitycommons.com/calculators/everyday/inches-to-feet/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                >
+                  convert inches to feet and inches
+                </a>{" "}
+                for the format most step-length formulas expect.
               </p>
             </div>
   
             <p className="mt-4 text-slate-700">
-              That said, height is still just an estimate — biomechanics and walking style can cause
-              meaningful variation even among people of the same height.
+              Measure your height without shoes for the best input; if you have the figure in
+              centimetres, our{" "}
+              <a
+                href="https://utilitycommons.com/charts/cm-to-inches-chart/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+              >
+                full cm to inches chart
+              </a>{" "}
+              converts it precisely. That said, height is still just an estimate — biomechanics and
+              walking style can cause meaningful variation even among people of the same height.
             </p>
   
             <CtaRow />
@@ -268,6 +296,18 @@ export const metadata = {
   
           <footer className="py-10 text-center text-xs text-slate-500">
             © {new Date().getFullYear()} Steps2Miles • Built for Good via ads4Good
+            <p className="mt-2">
+              Part of the{" "}
+              <a
+                href="https://utilitycommons.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-slate-700"
+              >
+                Utility Commons
+              </a>{" "}
+              family of everyday tools.
+            </p>
           </footer>
         </main>
       </div>

@@ -36,6 +36,31 @@ Our professional jobs have been in website creation and marketing, and we wanted
           , a mission-driven company focused on education about the advertising industry and focusing on people over profits.
         </p>
 
+        <h2 className="mt-6 text-lg font-semibold tracking-tight">Our other projects</h2>
+        <p className="mt-2 text-slate-700">
+          Steps2Miles is one of a small family of sites we build and run. Our
+          main project is{" "}
+          <a
+            href="https://utilitycommons.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+          >
+            Utility Commons
+          </a>{" "}
+          — a growing collection of{" "}
+          <a
+            href="https://utilitycommons.com/calculators/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+          >
+            calculators, charts, conversions and quizzes
+          </a>{" "}
+          for everyday questions. Like this one, it&apos;s built to be genuinely
+          useful first.
+        </p>
+
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/"
