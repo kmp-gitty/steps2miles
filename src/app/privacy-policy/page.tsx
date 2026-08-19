@@ -9,7 +9,7 @@ export const metadata = {
   const BASE_URL = "https://www.steps2miles.com";
   
   export default function PrivacyPolicyPage() {
-    const updated = "February 11, 2026";
+    const updated = "August 19, 2026";
   
     return (
       <div className="min-h-screen">
@@ -70,8 +70,9 @@ export const metadata = {
                   info) to improve the Site.
                 </li>
                 <li>
-                  If ads are enabled, ad partners may use cookies or similar
-                  technologies to personalize and measure ads.
+                  We display ads through Google AdSense. Google and its
+                  partners use cookies or similar technologies to serve, personalize,
+                  and measure ads.
                 </li>
                 <li>
                   We do not ask you to create an account and we do not sell your
@@ -117,9 +118,10 @@ export const metadata = {
                 3) Cookies and similar technologies
               </h3>
               <p className="mt-2 text-slate-700">
-                We and our partners may use cookies, pixels, and similar
-                technologies to operate the Site, understand usage, and (if enabled)
-                display and measure advertising.
+                We and our partners use cookies, pixels, and similar
+                technologies to operate the Site, understand usage, and display and
+                measure advertising. Advertising cookies are set by Google and its
+                partners when ads are served on the Site.
               </p>
             </section>
   
@@ -134,8 +136,8 @@ export const metadata = {
                 <li>Respond to messages and support requests</li>
                 <li>Prevent fraud, abuse, and security incidents</li>
                 <li>
-                  If advertising is enabled: serve, measure, and improve ads
-                  (including frequency capping and reporting)
+                  Serve, measure, and improve ads (including frequency capping
+                  and reporting)
                 </li>
               </ul>
             </section>
@@ -146,15 +148,58 @@ export const metadata = {
                 Advertising &amp; Analytics
               </h2>
               <p className="mt-2 text-slate-700">
-                We may use third-party analytics providers to understand Site
-                usage. We may also display ads through third-party networks. These
-                partners may collect information via cookies or similar
-                technologies to provide and measure services.
+                We display advertising on the Site through{" "}
+                <span className="font-medium">Google AdSense</span>, an advertising
+                service provided by Google. We may also use third-party analytics
+                providers to understand Site usage.
               </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+                <li>
+                  Third-party vendors, including Google, use cookies to serve ads
+                  based on your prior visits to this Site or other websites.
+                </li>
+                <li>
+                  Google’s use of advertising cookies enables it and its partners to
+                  serve ads to you based on your visit to this Site and/or other
+                  sites on the internet.
+                </li>
+                <li>
+                  You may opt out of personalized advertising by visiting{" "}
+                  <a
+                    href="https://www.google.com/settings/ads"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    Google Ads Settings
+                  </a>
+                  , or opt out of third-party vendors’ use of cookies for
+                  personalized advertising at{" "}
+                  <a
+                    href="https://www.aboutads.info/choices/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    aboutads.info/choices
+                  </a>
+                  .
+                </li>
+              </ul>
               <p className="mt-3 text-slate-700">
-                If you see ads on the Site, you may be able to control
-                personalization through your browser settings and (where
-                applicable) the ad provider’s controls.
+                You can read more about{" "}
+                <a
+                  href="https://policies.google.com/technologies/ads"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                >
+                  how Google uses information from sites that use its services
+                </a>
+                . If you are in the European Economic Area, the United Kingdom, or
+                Switzerland, we ask for your consent before personalized advertising
+                cookies are set, and you can change or withdraw that choice at any
+                time.
               </p>
             </section>
   
@@ -192,6 +237,24 @@ export const metadata = {
                   <span className="font-medium">Cookies:</span> you can usually
                   disable cookies in your browser settings. Note that some site
                   features may not work properly without cookies.
+                </li>
+                <li>
+                  <span className="font-medium">Ad personalization:</span> you can
+                  turn off personalized ads in{" "}
+                  <a
+                    href="https://www.google.com/settings/ads"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                  >
+                    Google Ads Settings
+                  </a>
+                  . You will still see ads, but they will be less relevant to you.
+                </li>
+                <li>
+                  <span className="font-medium">Consent choices:</span> if you were
+                  shown a consent banner, you can reopen it at any time to review or
+                  withdraw your choices.
                 </li>
                 <li>
                   <span className="font-medium">Do Not Track:</span> some browsers
